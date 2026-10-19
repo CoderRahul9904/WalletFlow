@@ -3,10 +3,13 @@ package com.rsm.walletflow.controller;
 import com.rsm.walletflow.dto.CreateUserRequest;
 import com.rsm.walletflow.dto.RequestUser;
 import com.rsm.walletflow.dto.SignUpResponse;
+import com.rsm.walletflow.dto.UserDepositResponse;
 import com.rsm.walletflow.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.math.BigDecimal;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -31,4 +34,6 @@ public class UserController {
     public ResponseEntity<RequestUser> getUserByEmail(@RequestParam("email") String email){
         return ResponseEntity.ok(userService.getUserByEmail(email));
     }
+
+
 }
