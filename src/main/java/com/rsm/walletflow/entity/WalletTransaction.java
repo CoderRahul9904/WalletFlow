@@ -3,12 +3,18 @@ package com.rsm.walletflow.entity;
 import com.rsm.walletflow.config.TransactionStatus;
 import com.rsm.walletflow.config.TransactionType;
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "wallet_transactions")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class WalletTransaction {
 
     @Id
