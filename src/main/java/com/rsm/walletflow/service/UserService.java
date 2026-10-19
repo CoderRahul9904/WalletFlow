@@ -20,7 +20,7 @@ public class UserService {
         return userMapper.toDto(userRepository.save(userMapper.toEntity(request)));
     }
 
-    public RequestUser getUserById(String id){
+    public RequestUser getUserById(Long id){
         return userMapper.toRequestUserDto(userRepository.getUserById(id).orElseThrow(() -> new RuntimeException("User not found with id: " + id)));
     }
 
