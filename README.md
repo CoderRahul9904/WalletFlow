@@ -123,11 +123,3 @@ Seed IDs available in `data.sql`: users `1,2,3`; wallets `101,102,103`; transact
 - No login / authentication / token endpoint.
 - No update/delete user or wallet endpoints.
 
-## E. Cross-cutting quality issues found by reading source
-
-1. No `@ControllerAdvice`: every business error returns HTTP 500 with a stack trace; error body format is Spring's default, inconsistent.
-2. No CORS configuration → browser frontend on another origin will be blocked.
-3. `User.password` never persisted (mapped to nonexistent field) → registration broken.
-4. Withdraw & transfer accept non-positive/null amounts → balance corruption possible.
-5. Self-transfer not rejected.
-6. History is fetched with POST (semantically a read).
