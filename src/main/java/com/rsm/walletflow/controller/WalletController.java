@@ -11,29 +11,38 @@ import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 
-@RestController("/api/v1")
+@RestController
+@RequestMapping("/api/v1/wallets")
 @RequiredArgsConstructor
 public class WalletController {
 
     private final WalletService walletService;
 
-    @PostMapping("/create/wallet/:id")
-    public ResponseEntity<UserWallet> createWallet(@RequestParam("id") Long id){
+    @PostMapping("/users/{id}")
+    public ResponseEntity<UserWallet> createWallet(
+            @PathVariable Long id) {
         return ResponseEntity.ok(walletService.createWallet(id));
     }
 
-    @GetMapping("/wallet/balance/:id")
-    public ResponseEntity<UserBalance> getBalance(@RequestParam("id") Long id){
+    @GetMapping("/{id}/balance")
+    public ResponseEntity<UserBalance> getBalance(
+            @PathVariable Long id) {
         return ResponseEntity.ok(walletService.getBalance(id));
     }
 
-    @PostMapping("/wallet/user/deposit/:id")
-    public ResponseEntity<UserDepositResponse> getDepositAmount(@RequestParam("id") Long id, @RequestBody BigDecimal depositAmount){
-        return ResponseEntity.ok(walletService.depositAmount(id, depositAmount));
+    @PostMapping("/{id}/deposit")
+    public ResponseEntity<UserDepositResponse> deposit(
+            @PathVariable Long id,
+            @RequestBody BigDecimal depositAmount) {
+        return ResponseEntity.ok(
+                walletService.depositAmount(id, depositAmount));
     }
 
-    @PostMapping("/wallet/user/withdraw/:id")
-    public ResponseEntity<UserWithDrawResponse> getWithDrawAmount(@RequestParam("id") Long id, @RequestBody BigDecimal withDrawAmount){
-        return ResponseEntity.ok(walletService.withDrawAmount(id, withDrawAmount));
+    @PostMapping("/{id}/withdraw")
+    public ResponseEntity<UserWithDrawResponse> withdraw(
+            @PathVariable Long id,
+            @RequestBody BigDecimal withdrawAmount) {
+        return ResponseEntity.ok(
+                walletService.withDrawAmount(id, withdrawAmount));
     }
 }
