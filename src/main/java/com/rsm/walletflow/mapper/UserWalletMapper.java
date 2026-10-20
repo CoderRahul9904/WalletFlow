@@ -29,4 +29,6 @@ public interface UserWalletMapper {
     @Mapping(target = "name", source = "wallet.user.name")
     @Mapping(target= "totalAmount", source="wallet.balance")
     UserWithDrawResponse toUserWithDrawDto(Wallet wallet, BigDecimal withDrawAmount);
+
+
 }

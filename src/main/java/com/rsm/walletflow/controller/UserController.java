@@ -3,35 +3,37 @@ package com.rsm.walletflow.controller;
 import com.rsm.walletflow.dto.CreateUserRequest;
 import com.rsm.walletflow.dto.RequestUser;
 import com.rsm.walletflow.dto.SignUpResponse;
-import com.rsm.walletflow.dto.UserDepositResponse;
 import com.rsm.walletflow.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.math.BigDecimal;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/users")
 @RequiredArgsConstructor
 public class UserController {
 
     private final UserService userService;
 
-    @PostMapping("/create")
+    @PostMapping
     public ResponseEntity<SignUpResponse> createUser(
-            @RequestBody CreateUserRequest request
-            ){
+            @RequestBody CreateUserRequest request) {
+
         return ResponseEntity.ok(userService.createUser(request));
     }
 
-    @GetMapping("/users/:id")
-    public ResponseEntity<RequestUser> getUserById(@RequestParam("id") Long id){
+    @GetMapping("/{id}")
+    public ResponseEntity<RequestUser> getUserById(
+            @PathVariable Long id) {
+
         return ResponseEntity.ok(userService.getUserById(id));
     }
 
-    @GetMapping("/users/:email")
-    public ResponseEntity<RequestUser> getUserByEmail(@RequestParam("email") String email){
+    @GetMapping
+    public ResponseEntity<RequestUser> getUserByEmail(
+            @RequestParam String email) {
+
         return ResponseEntity.ok(userService.getUserByEmail(email));
     }
 
