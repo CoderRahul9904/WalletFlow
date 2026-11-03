@@ -1,0 +1,430 @@
+﻿[INFO] Scanning for projects...
+[INFO] Loaded 24352 auto-discovered prefixes for remote repository central (prefixes-central.txt)
+[INFO] 
+[INFO] -------------------------< com.rsm:walletflow >-------------------------
+[INFO] Building  0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:4.1.1:run (default-cli) > test-compile @ walletflow >>>
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ walletflow ---
+[INFO] Copying 2 resources from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ walletflow ---
+[INFO] Loaded 64 auto-discovered prefixes for remote repository apache.snapshots (prefixes-apache.snapshots.txt)
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 36 source files with javac [debug parameters release 21] to target\classes
+[WARNING] /C:/Users/moury/Desktop/walletflow/src/main/java/com/rsm/walletflow/mapper/UserMapper.java:[18,10] Unmapped target properties: "id, wallet, createdAt".
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ walletflow ---
+[INFO] Copying 1 resource from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ walletflow ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 2 source files with javac [debug parameters release 21] to target\test-classes
+[INFO] 
+[INFO] <<< spring-boot:4.1.1:run (default-cli) < test-compile @ walletflow <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:4.1.1:run (default-cli) @ walletflow ---
+[INFO] Loaded 50 auto-discovered prefixes for remote repository ow2-snapshot (prefixes-ow2-snapshot.txt)
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.1)
+
+2026-11-03T22:30:43.684+05:30  INFO 13668 --- [walletflow] [           main] c.rsm.walletflow.WalletflowApplication   : Starting WalletflowApplication using Java 21.0.1 with PID 13668 (C:\Users\moury\Desktop\walletflow\target\classes started by moury in C:\Users\moury\Desktop\walletflow)
+2026-11-03T22:30:43.690+05:30  INFO 13668 --- [walletflow] [           main] c.rsm.walletflow.WalletflowApplication   : The following 1 profile is active: "h2"
+2026-11-03T22:30:44.925+05:30  INFO 13668 --- [walletflow] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-03T22:30:45.074+05:30  INFO 13668 --- [walletflow] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 128 ms. Found 3 JPA repository interfaces.
+2026-11-03T22:30:46.217+05:30  INFO 13668 --- [walletflow] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8081 (http)
+2026-11-03T22:30:46.254+05:30  INFO 13668 --- [walletflow] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-11-03T22:30:46.254+05:30  INFO 13668 --- [walletflow] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-11-03T22:30:46.402+05:30  INFO 13668 --- [walletflow] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 2616 ms
+2026-11-03T22:30:46.811+05:30  INFO 13668 --- [walletflow] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-11-03T22:30:46.948+05:30  INFO 13668 --- [walletflow] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-11-03T22:30:48.038+05:30  INFO 13668 --- [walletflow] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-03T22:30:48.113+05:30  INFO 13668 --- [walletflow] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-11-03T22:30:48.538+05:30  INFO 13668 --- [walletflow] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:walletflow-demo user=SA
+2026-11-03T22:30:48.541+05:30  INFO 13668 --- [walletflow] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-11-03T22:30:48.602+05:30  WARN 13668 --- [walletflow] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-11-03T22:30:48.652+05:30  INFO 13668 --- [walletflow] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:walletflow-demo]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.2.224
+	Default catalog/schema: WALLETFLOW-DEMO/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-11-03T22:30:50.746+05:30  INFO 13668 --- [walletflow] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[35m[Hibernate][0m 
+    [34mdrop[0m [34mtable[0m [34mif[0m [34mexists[0m users [34mcascade[0m 
+[35m[Hibernate][0m 
+    [34mdrop[0m [34mtable[0m [34mif[0m [34mexists[0m wallet_transactions [34mcascade[0m 
+[35m[Hibernate][0m 
+    [34mdrop[0m [34mtable[0m [34mif[0m [34mexists[0m wallets [34mcascade[0m 
+[35m[Hibernate][0m 
+    [34mcreate[0m [34mtable[0m users (
+        created_at [34mtimestamp[0m(6),
+        id [34mbigint[0m generated [34mby[0m [34mdefault[0m [34mas[0m [34midentity[0m,
+        email [34mvarchar[0m(255) [34mnot[0m [34mnull[0m [34munique[0m,
+        name [34mvarchar[0m(255),
+        password_hash [34mvarchar[0m(255) [34mnot[0m [34mnull[0m,
+        phone [34mvarchar[0m(255),
+        [34mprimary[0m [34mkey[0m (id)
+    )
+[35m[Hibernate][0m 
+    [34mcreate[0m [34mtable[0m wallet_transactions (
+        amount [34mnumeric[0m(19,2) [34mnot[0m [34mnull[0m,
+        created_at [34mtimestamp[0m(6),
+        id [34mbigint[0m generated [34mby[0m [34mdefault[0m [34mas[0m [34midentity[0m,
+        receiver_wallet_id [34mbigint[0m,
+        sender_wallet_id [34mbigint[0m,
+        reference [34mvarchar[0m(255) [34mnot[0m [34mnull[0m [34munique[0m,
+        status enum ([36m'FAILED'[0m,[36m'PENDING'[0m,[36m'SUCCESS'[0m),
+        type enum ([36m'DEPOSIT'[0m,[36m'TRANSFER'[0m,[36m'WITHDRAWAL'[0m),
+        [34mprimary[0m [34mkey[0m (id)
+    )
+[35m[Hibernate][0m 
+    [34mcreate[0m [34mtable[0m wallets (
+        balance [34mnumeric[0m(19,2) [34mnot[0m [34mnull[0m,
+        created_at [34mtimestamp[0m(6),
+        id [34mbigint[0m generated [34mby[0m [34mdefault[0m [34mas[0m [34midentity[0m,
+        user_id [34mbigint[0m [34mnot[0m [34mnull[0m [34munique[0m,
+        currency [34mvarchar[0m(255) [34mnot[0m [34mnull[0m,
+        [34mprimary[0m [34mkey[0m (id)
+    )
+[35m[Hibernate][0m 
+    [34malter[0m [34mtable[0m [34mif[0m [34mexists[0m wallet_transactions 
+       [34madd[0m [34mconstraint[0m FKaqy0s3hf2n2ky0xb76ergt3bm 
+       [34mforeign[0m [34mkey[0m (receiver_wallet_id) 
+       [34mreferences[0m wallets
+[35m[Hibernate][0m 
+    [34malter[0m [34mtable[0m [34mif[0m [34mexists[0m wallet_transactions 
+       [34madd[0m [34mconstraint[0m FKqqmtg3t7a86oun8rt8pgbay41 
+       [34mforeign[0m [34mkey[0m (sender_wallet_id) 
+       [34mreferences[0m wallets
+[35m[Hibernate][0m 
+    [34malter[0m [34mtable[0m [34mif[0m [34mexists[0m wallets 
+       [34madd[0m [34mconstraint[0m FKc1foyisidw7wqqrkamafuwn4e 
+       [34mforeign[0m [34mkey[0m (user_id) 
+       [34mreferences[0m users
+2026-11-03T22:30:50.876+05:30  INFO 13668 --- [walletflow] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-03T22:30:51.052+05:30  INFO 13668 --- [walletflow] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-11-03T22:30:51.689+05:30  WARN 13668 --- [walletflow] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-11-03T22:30:52.508+05:30  INFO 13668 --- [walletflow] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8081 (http) with context path '/'
+2026-11-03T22:30:52.518+05:30  INFO 13668 --- [walletflow] [           main] c.rsm.walletflow.WalletflowApplication   : Started WalletflowApplication in 9.78 seconds (process running for 10.637)
+2026-11-03T22:31:13.624+05:30  INFO 13668 --- [walletflow] [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-11-03T22:31:13.624+05:30  INFO 13668 --- [walletflow] [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-11-03T22:31:13.627+05:30  INFO 13668 --- [walletflow] [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+[35m[Hibernate][0m 
+    [34mselect[0m
+        w1_0.id,
+        w1_0.balance,
+        w1_0.created_at,
+        w1_0.currency,
+        w1_0.user_id 
+    [34mfrom[0m
+        wallets w1_0 
+    [34mwhere[0m
+        w1_0.id=?
+[35m[Hibernate][0m 
+    [34minsert[0m 
+    [34minto[0m
+        users
+        (created_at, email, name, password_hash, phone, id) 
+    [34mvalues[0m
+        (?, ?, ?, ?, ?, [34mdefault[0m)
+[35m[Hibernate][0m 
+    [34minsert[0m 
+    [34minto[0m
+        users
+        (created_at, email, name, password_hash, phone, id) 
+    [34mvalues[0m
+        (?, ?, ?, ?, ?, [34mdefault[0m)
+[35m[Hibernate][0m 
+    [34mselect[0m
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password_hash,
+        u1_0.phone 
+    [34mfrom[0m
+        users u1_0 
+    [34mwhere[0m
+        u1_0.id=?
+[35m[Hibernate][0m 
+    [34mselect[0m
+        w1_0.id,
+        w1_0.balance,
+        w1_0.created_at,
+        w1_0.currency,
+        w1_0.user_id 
+    [34mfrom[0m
+        wallets w1_0 
+    [34mwhere[0m
+        w1_0.user_id=?
+[35m[Hibernate][0m 
+    [34mselect[0m
+        w1_0.id 
+    [34mfrom[0m
+        wallets w1_0 
+    [34mwhere[0m
+        w1_0.user_id=? 
+    [34mfetch[0m
+        [34mfirst[0m ? [34mrows[0m [34monly[0m
+[35m[Hibernate][0m 
+    [34minsert[0m 
+    [34minto[0m
+        wallets
+        (balance, created_at, currency, user_id, id) 
+    [34mvalues[0m
+        (?, ?, ?, ?, [34mdefault[0m)
+[35m[Hibernate][0m 
+    [34mselect[0m
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password_hash,
+        u1_0.phone 
+    [34mfrom[0m
+        users u1_0 
+    [34mwhere[0m
+        u1_0.id=?
+[35m[Hibernate][0m 
+    [34mselect[0m
+        w1_0.id,
+        w1_0.balance,
+        w1_0.created_at,
+        w1_0.currency,
+        w1_0.user_id 
+    [34mfrom[0m
+        wallets w1_0 
+    [34mwhere[0m
+        w1_0.user_id=?
+[35m[Hibernate][0m 
+    [34mselect[0m
+        w1_0.id 
+    [34mfrom[0m
+        wallets w1_0 
+    [34mwhere[0m
+        w1_0.user_id=? 
+    [34mfetch[0m
+        [34mfirst[0m ? [34mrows[0m [34monly[0m
+[35m[Hibernate][0m 
+    [34minsert[0m 
+    [34minto[0m
+        wallets
+        (balance, created_at, currency, user_id, id) 
+    [34mvalues[0m
+        (?, ?, ?, ?, [34mdefault[0m)
+[35m[Hibernate][0m 
+    [34mselect[0m
+        w1_0.id,
+        w1_0.balance,
+        w1_0.created_at,
+        w1_0.currency,
+        w1_0.user_id 
+    [34mfrom[0m
+        wallets w1_0 
+    [34mwhere[0m
+        w1_0.id=?
+[35m[Hibernate][0m 
+    [34minsert[0m 
+    [34minto[0m
+        wallet_transactions
+        (amount, created_at, receiver_wallet_id, reference, sender_wallet_id, status, type, id) 
+    [34mvalues[0m
+        (?, ?, ?, ?, ?, ?, ?, [34mdefault[0m)
+[35m[Hibernate][0m 
+    [34mselect[0m
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password_hash,
+        u1_0.phone 
+    [34mfrom[0m
+        users u1_0 
+    [34mwhere[0m
+        u1_0.id=?
+[35m[Hibernate][0m 
+    [34mupdate[0m
+        wallets 
+    [34mset[0m
+        balance=?,
+        created_at=?,
+        currency=?,
+        user_id=? 
+    [34mwhere[0m
+        id=?
+[35m[Hibernate][0m 
+    [34mselect[0m
+        w1_0.id,
+        w1_0.balance,
+        w1_0.created_at,
+        w1_0.currency,
+        w1_0.user_id 
+    [34mfrom[0m
+        wallets w1_0 
+    [34mwhere[0m
+        w1_0.id=?
+[35m[Hibernate][0m 
+    [34mselect[0m
+        w1_0.id,
+        w1_0.balance,
+        w1_0.created_at,
+        w1_0.currency,
+        w1_0.user_id 
+    [34mfrom[0m
+        wallets w1_0 
+    [34mwhere[0m
+        w1_0.id=?
+[35m[Hibernate][0m 
+    [34minsert[0m 
+    [34minto[0m
+        wallet_transactions
+        (amount, created_at, receiver_wallet_id, reference, sender_wallet_id, status, type, id) 
+    [34mvalues[0m
+        (?, ?, ?, ?, ?, ?, ?, [34mdefault[0m)
+[35m[Hibernate][0m 
+    [34mselect[0m
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password_hash,
+        u1_0.phone 
+    [34mfrom[0m
+        users u1_0 
+    [34mwhere[0m
+        u1_0.id=?
+[35m[Hibernate][0m 
+    [34mselect[0m
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password_hash,
+        u1_0.phone 
+    [34mfrom[0m
+        users u1_0 
+    [34mwhere[0m
+        u1_0.id=?
+[35m[Hibernate][0m 
+    [34mupdate[0m
+        wallets 
+    [34mset[0m
+        balance=?,
+        created_at=?,
+        currency=?,
+        user_id=? 
+    [34mwhere[0m
+        id=?
+[35m[Hibernate][0m 
+    [34mupdate[0m
+        wallets 
+    [34mset[0m
+        balance=?,
+        created_at=?,
+        currency=?,
+        user_id=? 
+    [34mwhere[0m
+        id=?
+[35m[Hibernate][0m 
+    [34mselect[0m
+        w1_0.id,
+        w1_0.balance,
+        w1_0.created_at,
+        w1_0.currency,
+        w1_0.user_id 
+    [34mfrom[0m
+        wallets w1_0 
+    [34mwhere[0m
+        w1_0.id=?
+[35m[Hibernate][0m 
+    [34mselect[0m
+        w1_0.id,
+        w1_0.balance,
+        w1_0.created_at,
+        w1_0.currency,
+        w1_0.user_id 
+    [34mfrom[0m
+        wallets w1_0 
+    [34mwhere[0m
+        w1_0.id=?
+[35m[Hibernate][0m 
+    [34mselect[0m
+        w1_0.id,
+        w1_0.balance,
+        w1_0.created_at,
+        w1_0.currency,
+        w1_0.user_id 
+    [34mfrom[0m
+        wallets w1_0 
+    [34mwhere[0m
+        w1_0.id=?
+[35m[Hibernate][0m 
+    [34mselect[0m
+        wt1_0.id,
+        wt1_0.amount,
+        wt1_0.created_at,
+        wt1_0.receiver_wallet_id,
+        wt1_0.reference,
+        wt1_0.sender_wallet_id,
+        wt1_0.status,
+        wt1_0.type 
+    [34mfrom[0m
+        wallet_transactions wt1_0 
+    [34mwhere[0m
+        wt1_0.sender_wallet_id=? 
+        [34mor[0m wt1_0.receiver_wallet_id=?
+[35m[Hibernate][0m 
+    [34mselect[0m
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password_hash,
+        u1_0.phone 
+    [34mfrom[0m
+        users u1_0 
+    [34mwhere[0m
+        u1_0.id=?
+[35m[Hibernate][0m 
+    [34mselect[0m
+        w1_0.id,
+        w1_0.balance,
+        w1_0.created_at,
+        w1_0.currency,
+        w1_0.user_id 
+    [34mfrom[0m
+        wallets w1_0 
+    [34mwhere[0m
+        w1_0.id=?
+[35m[Hibernate][0m 
+    [34mselect[0m
+        u1_0.id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.password_hash,
+        u1_0.phone 
+    [34mfrom[0m
+        users u1_0 
+    [34mwhere[0m
+        u1_0.id=?

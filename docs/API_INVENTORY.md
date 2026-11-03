@@ -131,3 +131,62 @@ Seed IDs available in `data.sql`: users `1,2,3`; wallets `101,102,103`; transact
 4. Withdraw & transfer accept non-positive/null amounts → balance corruption possible.
 5. Self-transfer not rejected.
 6. History is fetched with POST (semantically a read).
+
+---
+
+## F. Post-fix changelog (additive & non-breaking)
+
+All issues in section E have been resolved. The public response
+shapes were only **extended** (never removed or renamed), so any
+existing consumer continues to work.
+
+### F.1 HTTP status & error body
+New `@RestControllerAdvice` (`exception/GlobalExceptionHandler.java`)
+returns a consistent `ErrorResponse` body
+`{ timestamp, status, error, message, path }` for every failure mode:
+
+| Exception thrown by services | HTTP |
+|---|---|
+| `ResourceNotFoundException` | 404 |
+| `InvalidAmountException` | 400 |
+| `InsufficientBalanceException` | 400 |
+| `BusinessConflictException` (dup wallet etc.) | 409 |
+| `IllegalArgumentException` | 400 |
+| `HttpMessageNotReadableException` (bad JSON) | 400 |
+| `MissingServletRequestParameterException` | 400 |
+| `DataIntegrityViolationException` (SQL constraint) | 409 (message sanitised — no raw SQL leak) |
+| Any other `Exception` | 500 (message sanitised) |
+
+### F.2 CORS
+`config/WebConfig.java` allows origins matching
+`http://localhost:*` / `http://127.0.0.1:*` on `/api/**`, all methods,
+credentials on — enough for the Vite dev server without opening the
+API to the world.
+
+### F.3 Additive DTO changes
+Fields were only added — never removed or renamed:
+
+- `SignUpResponse`: `{ name }` → `{ id, name, email }` — the frontend
+  needs `id` to chain create-user → create-wallet.
+- `RequestUser`: `{ name, email, phone }` → `{ id, name, email, phone }`.
+- `CreateUserRequest`: annotated with `@NoArgsConstructor` + 
+  `@AllArgsConstructor` in addition to `@Data @Builder` so Jackson 3
+  can deserialize the payload (previously threw
+  `Type definition error: CreateUserRequest`).
+
+### F.4 Business-rule fixes now enforced in services
+
+| Bug | Fix location | Behaviour |
+|---|---|---|
+| B-1 `password` not mapped to `passwordHash` | `UserMapper.toEntity` — added `@Mapping(target="passwordHash", source="password")` | user row inserts with the raw (demo-only) password |
+| B-3 Negative / null withdrawal inflates balance | `WalletService#withDrawAmount` | rejects `null` / `<= 0` with `InvalidAmountException` (400) |
+| B-4 Negative / null transfer inflates both sides | `WalletTransactionService#transferMoney` | rejects `null` request/amount / receiverWalletId with `InvalidAmountException` (400) |
+| B-5 Self-transfer not blocked | `WalletTransactionService#transferMoney` | rejects `senderWalletId == receiverWalletId` with `InvalidAmountException` (400) |
+| Receiver-not-found left sender debited (rollback edge) | `WalletTransactionService#transferMoney` | loads receiver **before** mutating any balance |
+| Withdraw copy said "deposit of" | `UserWithDrawResponse` template | now says "withdrawal of" |
+| Seed PK collision on first runtime write with `data.sql` | `src/main/resources/data.sql` | appends `ALTER TABLE ... ALTER COLUMN id RESTART WITH ...` for users(4), wallets(104), wallet_transactions(8) |
+
+### F.5 Endpoints unchanged
+The path, HTTP verb, request body, and response shape of every
+endpoint listed in sections A–C remain exactly as documented above.
+

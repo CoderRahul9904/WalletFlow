@@ -9,6 +9,10 @@ import com.rsm.walletflow.dto.UserWithDrawResponse;
 import com.rsm.walletflow.entity.User;
 import com.rsm.walletflow.entity.Wallet;
 import com.rsm.walletflow.entity.WalletTransaction;
+import com.rsm.walletflow.exception.BusinessConflictException;
+import com.rsm.walletflow.exception.InsufficientBalanceException;
+import com.rsm.walletflow.exception.InvalidAmountException;
+import com.rsm.walletflow.exception.ResourceNotFoundException;
 import com.rsm.walletflow.mapper.UserWalletMapper;
 import com.rsm.walletflow.repository.UserRepository;
 import com.rsm.walletflow.repository.WalletRepository;
@@ -35,10 +39,10 @@ public class WalletService {
 
         User user = userRepository.findById(id)
                 .orElseThrow(() ->
-                        new RuntimeException("User not found"));
+                        new ResourceNotFoundException("User not found with id: " + id));
 
         if(walletRepository.existsByUserId(id)){
-            throw new RuntimeException(
+            throw new BusinessConflictException(
                     "Wallet already exists for this user");
         }
         return userWalletMapper.toUserWalletDto(walletRepository.save(
@@ -48,17 +52,19 @@ public class WalletService {
     }
 
     public UserBalance getBalance(Long walletId) {
-        return userWalletMapper.toUserBalanceDto(walletRepository.getWalletById(walletId).orElseThrow(() -> new RuntimeException("Wallet not found error 404")));
+        return userWalletMapper.toUserBalanceDto(walletRepository.getWalletById(walletId)
+                .orElseThrow(() -> new ResourceNotFoundException("Wallet not found with id: " + walletId)));
     }
 
     @Transactional
     public UserDepositResponse depositAmount(Long walletId, BigDecimal depositAmount){
         if (depositAmount == null ||
                 depositAmount.compareTo(BigDecimal.ZERO) <= 0) {
-            throw new IllegalArgumentException(
+            throw new InvalidAmountException(
                     "Deposit amount must be greater than zero");
         }
-        Wallet wallet=walletRepository.getWalletById(walletId).orElseThrow(() -> new RuntimeException("Wallet not found error 404"));
+        Wallet wallet=walletRepository.getWalletById(walletId)
+                .orElseThrow(() -> new ResourceNotFoundException("Wallet not found with id: " + walletId));
         wallet.setBalance(wallet.getBalance().add(depositAmount));
         WalletTransaction walletTransaction=WalletTransaction
                 .builder()
@@ -75,9 +81,15 @@ public class WalletService {
 
     @Transactional
     public UserWithDrawResponse withDrawAmount(Long walletId, BigDecimal withDrawAmount){
-        Wallet wallet=walletRepository.getWalletById(walletId).orElseThrow(() -> new RuntimeException("Wallet not found error 404"));
+        if (withDrawAmount == null ||
+                withDrawAmount.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new InvalidAmountException(
+                    "Withdraw amount must be greater than zero");
+        }
+        Wallet wallet=walletRepository.getWalletById(walletId)
+                .orElseThrow(() -> new ResourceNotFoundException("Wallet not found with id: " + walletId));
         if(withDrawAmount.compareTo(wallet.getBalance()) > 0){
-            throw new IllegalArgumentException(
+            throw new InsufficientBalanceException(
                     "Withdraw amount must be less than Available Balance");
         }
         wallet.setBalance(wallet.getBalance().subtract(withDrawAmount));

@@ -66,6 +66,14 @@
 			<artifactId>spring-boot-starter-webmvc-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- Isolated in-memory DB used by tests AND by the optional `h2` Spring profile
+		     so the app can be demoed without touching the real PostgreSQL. -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>2.2.224</version>
+			<scope>runtime</scope>
+		</dependency>
 	</dependencies>
 
 	<build>

@@ -25,7 +25,7 @@ public class UserWithDrawResponse {
         this.withDrawAmount = withDrawAmount;
 
         this.message = "Dear " + name
-                + ", your deposit of ₹" + withDrawAmount
+                + ", your withdrawal of ₹" + withDrawAmount
                 + " was successfully deducted from your account."
                 + " Your current available balance is ₹"
                 + totalAmount + ".";
