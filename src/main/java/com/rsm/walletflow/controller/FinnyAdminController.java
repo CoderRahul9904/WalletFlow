@@ -1,5 +1,7 @@
 package com.rsm.walletflow.controller;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,5 +31,11 @@ public class FinnyAdminController {
             // Handle exceptions and return an appropriate response
             throw new RuntimeException("Error ingesting data", e);
         }
+    }
+
+    @GetMapping("/ingestion-responses")
+    public ResponseEntity<List<IngestionResponse>> getAllIngestionResponses() {
+        // Implementation for fetching all ingestion responses
+        return ResponseEntity.ok(finnyChatService.getAllIngestionResponses());
     }
 }
