@@ -1,5 +1,7 @@
 package com.rsm.walletflow.service;
 
+import java.util.List;
+
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -54,6 +56,11 @@ public class FinnyChatServiceImpl implements FinnyChatService {
             // Handle exceptions and return an appropriate response
             return dataIngestionMapper.toDto(dataIngestionRepository.save(DataIngestion.builder().status(DataIngestionStatus.REJECTED).message(message).build()));
         }
+    }
+
+    @Override
+    public List<IngestionResponse> getAllIngestionResponses() {
+        return dataIngestionMapper.toDtoList(dataIngestionRepository.findAll());
     }
 
     
