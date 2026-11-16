@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.rsm.walletflow.ai.rag.ingestion.DataReader;
+import com.rsm.walletflow.ai.rag.ingestion.DataTransformer;
+import com.rsm.walletflow.ai.rag.ingestion.DataWriter;
+import com.rsm.walletflow.ai.rag.ingestion.VectorStoreWriter;
 import com.rsm.walletflow.service.FinnyChatServiceImpl;
 import lombok.RequiredArgsConstructor;
 
@@ -24,7 +27,9 @@ public class FinnyChatController {
     // private static final Logger log = LoggerFactory.getLogger(FinnyChatController.class);
     private final FinnyChatServiceImpl finnyChatService;
     private final DataReader dataReader;
-
+    private final DataTransformer dataTransformer;
+    private final DataWriter dataWriter;
+    private final VectorStoreWriter vectorStoreWriter;
 
 
     @GetMapping("/chat")
@@ -40,5 +45,34 @@ public class FinnyChatController {
             throw new RuntimeException("Error reading wallet flow policies", e);
         }
     }
+    
+    @GetMapping("/transform/data")
+    public List<Document> getTransformedDocuments() {
+        try {
+            return dataTransformer.transformDocuments(dataReader.readDocuments());
+        } catch (IOException e) {
+            throw new RuntimeException("Error reading wallet flow policies", e);
+        }
+    }
+
+    @GetMapping("/write/data-to-local")
+    public void getProcessedDocuments(@RequestParam String param) {
+        try {
+            dataWriter.writeDocuments(dataTransformer.transformDocuments(dataReader.readDocuments()));
+        } catch (IOException e) {
+            throw new RuntimeException("Error reading wallet flow policies", e);
+        }
+    }
+
+    @GetMapping("/write/data-to-vector-store")
+    public void getProcessedDocumentsToVectorStore(@RequestParam String param) {
+        try {
+            vectorStoreWriter.writeDocuments(dataTransformer.transformDocuments(dataReader.readDocuments()));
+        } catch (IOException e) {
+            throw new RuntimeException("Error reading wallet flow policies", e);
+        }
+    }
+    
+    
     
 }
