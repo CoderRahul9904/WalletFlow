@@ -3,7 +3,7 @@ documentId: WF-POL-005
 documentName: Refunds and Disputes Policy
 version: "1.0"
 status: DRAFT
-category: REFUNDS_DISPUTES
+policyCategory: REFUNDS_DISPUTES
 sourceType: INTERNAL_POLICY
 effectiveDate: PENDING_APPROVAL
 owner: WalletFlow Product & Engineering Team

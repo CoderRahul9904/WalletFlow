@@ -3,7 +3,7 @@ documentId: WF-POL-001
 documentName: Wallet Operations Policy
 version: "1.0"
 status: DRAFT
-category: WALLET_OPERATIONS
+policyCategory: WALLET_OPERATIONS
 sourceType: INTERNAL_POLICY
 effectiveDate: PENDING_APPROVAL
 owner: WalletFlow Product & Engineering Team

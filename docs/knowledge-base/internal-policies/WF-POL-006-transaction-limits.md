@@ -3,7 +3,7 @@ documentId: WF-POL-006
 documentName: Transaction Limits Policy
 version: "1.0"
 status: DRAFT
-category: TRANSACTION_LIMITS
+policyCategory: TRANSACTION_LIMITS
 sourceType: INTERNAL_POLICY
 effectiveDate: PENDING_APPROVAL
 owner: WalletFlow Product & Engineering Team

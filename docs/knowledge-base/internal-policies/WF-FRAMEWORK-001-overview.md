@@ -3,7 +3,7 @@ documentId: WF-FRAMEWORK-001
 documentName: WalletFlow Internal Policy Framework Overview
 version: "1.0"
 status: DRAFT
-category: POLICY_FRAMEWORK
+policyCategory: POLICY_FRAMEWORK
 sourceType: INTERNAL_POLICY
 effectiveDate: PENDING_APPROVAL
 owner: WalletFlow Product & Engineering Team

@@ -3,7 +3,7 @@ documentId: WF-POL-003
 documentName: Customer Verification Policy
 version: "1.0"
 status: DRAFT
-category: CUSTOMER_VERIFICATION
+policyCategory: CUSTOMER_VERIFICATION
 sourceType: INTERNAL_POLICY
 effectiveDate: PENDING_APPROVAL
 owner: WalletFlow Product & Engineering Team

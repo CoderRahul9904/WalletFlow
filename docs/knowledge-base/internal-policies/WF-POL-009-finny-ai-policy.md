@@ -3,7 +3,7 @@ documentId: WF-POL-009
 documentName: Finny AI Policy
 version: "1.0"
 status: DRAFT
-category: AI_POLICY
+policyCategory: AI_POLICY
 sourceType: INTERNAL_POLICY
 effectiveDate: PENDING_APPROVAL
 owner: WalletFlow Product & Engineering Team

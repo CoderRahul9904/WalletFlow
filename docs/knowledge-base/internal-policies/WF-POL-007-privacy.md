@@ -3,7 +3,7 @@ documentId: WF-POL-007
 documentName: Privacy Policy
 version: "1.0"
 status: DRAFT
-category: PRIVACY
+policyCategory: PRIVACY
 sourceType: INTERNAL_POLICY
 effectiveDate: PENDING_APPROVAL
 owner: WalletFlow Product & Engineering Team

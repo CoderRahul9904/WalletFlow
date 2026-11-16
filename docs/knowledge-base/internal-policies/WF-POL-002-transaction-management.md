@@ -3,7 +3,7 @@ documentId: WF-POL-002
 documentName: Transaction Management Policy
 version: "1.0"
 status: DRAFT
-category: TRANSACTION_MANAGEMENT
+policyCategory: TRANSACTION_MANAGEMENT
 sourceType: INTERNAL_POLICY
 effectiveDate: PENDING_APPROVAL
 owner: WalletFlow Product & Engineering Team

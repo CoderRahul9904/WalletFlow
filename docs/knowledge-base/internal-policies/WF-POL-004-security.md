@@ -3,7 +3,7 @@ documentId: WF-POL-004
 documentName: Security Policy
 version: "1.0"
 status: DRAFT
-category: SECURITY
+policyCategory: SECURITY
 sourceType: INTERNAL_POLICY
 effectiveDate: PENDING_APPROVAL
 owner: WalletFlow Product & Engineering Team

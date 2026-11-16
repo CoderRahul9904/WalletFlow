@@ -3,7 +3,7 @@ documentId: WF-POL-008
 documentName: Customer Grievance Policy
 version: "1.0"
 status: DRAFT
-category: CUSTOMER_GRIEVANCE
+policyCategory: CUSTOMER_GRIEVANCE
 sourceType: INTERNAL_POLICY
 effectiveDate: PENDING_APPROVAL
 owner: WalletFlow Product & Engineering Team
