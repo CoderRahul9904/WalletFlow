@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.rsm.walletflow.ai.rag.implementation.RagService;
 import com.rsm.walletflow.ai.rag.ingestion.DataReader;
 import com.rsm.walletflow.ai.rag.ingestion.DataTransformer;
 import com.rsm.walletflow.ai.rag.ingestion.DataWriter;
@@ -30,6 +31,7 @@ public class FinnyChatController {
     private final DataTransformer dataTransformer;
     private final DataWriter dataWriter;
     private final VectorStoreWriter vectorStoreWriter;
+    private final RagService ragService;
 
 
     @GetMapping("/chat")
@@ -72,6 +74,12 @@ public class FinnyChatController {
             throw new RuntimeException("Error reading wallet flow policies", e);
         }
     }
+
+    @GetMapping("/ai/response")
+    public String getMethodName(@RequestParam String userMessage) {
+        return ragService.generateResponse(userMessage);
+    }
+    
     
     
     
