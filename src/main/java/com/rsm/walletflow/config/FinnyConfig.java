@@ -35,4 +35,9 @@ public class FinnyConfig {
                 .maxTokens(1000))
             .build();
     }
+
+    @Bean("ragInternalChatClient")
+    public ChatClient getRagInternalChatClient(OpenAiChatModel openAiChatModel){
+        return ChatClient.builder(openAiChatModel).build();
+    }
 }
